@@ -1,0 +1,38 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- link archivo de estilos css -->
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div id="contenedor">
+        <div id="contenedor centrado">
+            <div id="login">
+<form name="LOGIN" id ="loginform">
+      <label for ="usuario">Usuario</label>
+      <input type ="text" name ="USER" id ="usuario" placeholder="usuario" required>
+      <label for ="password">Contraseña</label>
+      <INPUT type ="password" name="PW" id="password" placeholder="PW" required> 
+      <button TYPE ="button" onclick="Login()" title="Ingresar" name ="Ingresar">LOGIN</button>
+</form>
+
+<script language="JavaScript">
+    function Login()
+    {
+        var usuario = document.LOGIN.USER.value;
+        var password = document.LOGIN.PW.value;
+        if ( usuario == "abraham" && password=="1234")
+        {
+           window.location="indice.html";
+        } //fin if
+        else
+        {
+             alert("Datos erróneos");
+        }  //fin else
+    }// fin function 
+
+</script>
+</div>
+</html>

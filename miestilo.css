@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* CSS Document */
+   body{
+	padding-left: 11em;
+	color:rgb(23, 68, 105);
+	background-color:#7f90bb;
+	font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+   ul.navbar{
+	position: absolute;
+	top: 2em;
+	left: 1em; 
+	width: 9em;
+	}
+   h1 {
+	color: rgba(245, 245, 249, 0.825);
+	font-family: helvetica, arial,
+	'Segoe UI', Tahoma, sans-serif}
+   ul.navbar li {
+	background: rgb(248, 248, 250);
+	margin: 0.5em 0;
+	padding: 0.3em;
+	border-right: 1em solid rgb(3, 19, 52);
+   }
+   ul.navbar a{
+	background-color: rgba(246, 248, 250, 0.686);
+	text-decoration: none;
+   }
+   a:link {
+	color: rgb(17, 24, 46)
+   }
+   a:visited {
+	color: rgb(17, 24, 46);
+   }
+   a.adress {
+	margin-top: 1em;
+	padding-top: 1em;
+	border-top: thin dotted;
+   }
+   
+	

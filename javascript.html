@@ -1,0 +1,159 @@
+<html>
+<head>
+<title>Calculadora</title> 
+<link rel="stylesheet" type="text/css" href="miestilo.css" />
+<script type="text/javascript" src="java.js"></script>
+</head>
+<body>
+  <ul class="navbar">
+    <li><a href="indice.html"> Página Principal </a>
+    </ul>
+<center>
+  <br>
+  <br>
+  <h1>Javas</h1>
+  <br>
+<br>
+<h3>Hoy estamos a :</h3>
+	<script>
+	var date=new Date();var d=date.getDate();var day=(d<10)?'0'+d:d;var m=date.getMonth()+1;var month=(m<10)?'0'+m:m;var yy=date.getYear();var year=(yy<1000)?yy+1900:yy;document.write(day+"/"+month+"/"+year);
+	</script>
+
+<br>
+<br>
+	
+	<h3>Estas son coordenadas de tu rat&oacute;n.</h3>
+	<form name="Show">
+		X <input type="text" name="MouseX" value="0" size="4"><br>
+		Y <input type="text" name="MouseY" value="0" size="4"><br>
+		</form>
+		<script>
+		var IE = document.all?true:false;
+		if (!IE) document.captureEvents(Event.MOUSEMOVE)
+		document.onmousemove = getMouseXY;
+		var tempX = 0;
+		var tempY = 0;
+		function getMouseXY(e) {
+		if (IE) {tempX = event.clientX + document.body.scrollLeft;
+		tempY = event.clientY + document.body.scrollTop;}
+		else {tempX = e.pageX;tempY = e.pageY;}  
+		if (tempX < 0){tempX = 0;}
+		if (tempY < 0){tempY = 0;}  
+		document.Show.MouseX.value = tempX;
+		document.Show.MouseY.value = tempY;
+		return true;}
+		</script>
+
+<br>
+<br>
+
+<h3>Esto es una calculadora para que hagas cuentas. </h3>
+<input type="text" id="arg1" size="1"> X <input type="text" id="arg2" size="1">
+<input type="button" value="Calcular!" onclick="calc()"> 
+<div id="result"></div>
+<script type="text/javascript">
+function calc(){
+var argOne=document.getElementById('arg1').value; 
+var argTwo=document.getElementById('arg2').value;
+var ans=(argOne*argTwo); 
+document.getElementById('result').innerHTML=argOne + ' multiplicado por ' + argTwo + ' es igual a ' + ans;
+}
+</script>
+
+<br>
+<br>
+<SCRIPT LANGUAGE="JavaScript">
+	alert("!Hola Mundo!");
+</SCRIPT>
+<br>
+<br>
+
+<h3>Un calendario para que veas como pasan los dias. </h3>
+<table id="calendar">
+	<caption></caption>
+	<thead>
+		<tr>
+			<th>Lun</th><th>Mar</th><th>Mie</th><th>Jue</th><th>Vie</th><th>Sab</th><th>Dom</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+ 
+</body>
+</html>
+ 
+<script>
+var actual=new Date();
+function mostrarCalendario(year,month)
+{
+	var now=new Date(year,month-1,1);
+	var last=new Date(year,month,0);
+	var primerDiaSemana=(now.getDay()==0)?7:now.getDay();
+	var ultimoDiaMes=last.getDate();
+	var dia=0;
+	var resultado="<tr bgcolor='silver'>";
+	var diaActual=0;
+	console.log(ultimoDiaMes);
+ 
+	var last_cell=primerDiaSemana+ultimoDiaMes;
+ 
+	// hacemos un bucle hasta 42, que es el máximo de valores que puede
+	// haber... 6 columnas de 7 dias
+	for(var i=1;i<=42;i++)
+	{
+		if(i==primerDiaSemana)
+		{
+			// determinamos en que dia empieza
+			dia=1;
+		}
+		if(i<primerDiaSemana || i>=last_cell)
+		{
+			// celda vacia
+			resultado+="<td>&nbsp;</td>";
+		}else{
+			// mostramos el dia
+			if(dia==actual.getDate() && month==actual.getMonth()+1 && year==actual.getFullYear())
+				resultado+="<td class='hoy'>"+dia+"</td>";
+			else
+				resultado+="<td>"+dia+"</td>";
+			dia++;
+		}
+		if(i%7==0)
+		{
+			if(dia>ultimoDiaMes)
+				break;
+			resultado+="</tr><tr>\n";
+		}
+	}
+	resultado+="</tr>";
+ 
+	var meses=Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+ 
+	// Calculamos el siguiente mes y año
+	nextMonth=month+1;
+	nextYear=year;
+	if(month+1>12)
+	{
+		nextMonth=1;
+		nextYear=year+1;
+	}
+ 
+	// Calculamos el anterior mes y año
+	prevMonth=month-1;
+	prevYear=year;
+	if(month-1<1)
+	{
+		prevMonth=12;
+		prevYear=year-1;
+	}
+ 
+	document.getElementById("calendar").getElementsByTagName("caption")[0].innerHTML="<div>"+meses[month-1]+" / "+year+"</div><div><a onclick='mostrarCalendario("+prevYear+","+prevMonth+")'>&lt;</a> <a onclick='mostrarCalendario("+nextYear+","+nextMonth+")'>&gt;</a></div>";
+	document.getElementById("calendar").getElementsByTagName("tbody")[0].innerHTML=resultado;
+}
+ 
+mostrarCalendario(actual.getFullYear(),actual.getMonth()+1);
+</script>
+</center>
+</body>
+</html>
